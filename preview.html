@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Developer Portfolio - Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    * { font-family: 'Geist', sans-serif; }
+    canvas { display: block; touch-action: none; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen overflow-x-hidden">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-40 px-6 py-4 bg-black/50 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 text-white font-light text-xl">
+        <div class="w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-purple-500">
+          <span class="font-bold text-white text-sm">CD</span>
+        </div>
+        <span class="hidden sm:block">Creative Dev</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-white/70 hover:text-white font-medium text-sm transition-colors">About</a>
+        <a href="#work" class="text-white/70 hover:text-white font-medium text-sm transition-colors">Work</a>
+        <a href="#skills" class="text-white/70 hover:text-white font-medium text-sm transition-colors">Skills</a>
+        <a href="#contact" class="text-white/70 hover:text-white font-medium text-sm transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <div id="hero-canvas" class="absolute inset-0 z-0"></div>
+    <div class="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+    
+    <div class="relative z-20 px-6 py-20 max-w-7xl mx-auto text-center">
+      <div class="mb-6">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-medium text-white/80">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          Available for freelance
+        </span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-white mb-6">
+        <span class="font-extralight">Creative</span>{" "}
+        <span class="font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          Developer
+        </span>{" "}
+        <span class="font-extralight">& Designer</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+        Crafting immersive digital experiences through code, 3D graphics, and thoughtful design. Building the future of the web.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#work" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+          View Work
+        </a>
+        <a href="#contact" class="px-8 py-4 rounded-full border border-white/20 text-white/90 font-medium transition-all hover:bg-white/5 hover:border-white/30 backdrop-blur-sm">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="relative py-24 md:py-32 px-6 bg-black/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-cyan-400 mb-4">About Me</span>
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-4">
+          Crafting Digital<br />
+          <span class="font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Experiences
+          </span>
+        </h2>
+        <p class="text-lg text-white/60 max-w-2xl mx-auto font-light leading-relaxed">
+          I'm a creative developer passionate about building immersive web experiences that push the boundaries of what's possible in the browser.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-white/70 leading-relaxed text-lg mb-6">
+            With over 3 years of experience in creative development, I specialize in transforming complex ideas into elegant, performant, and visually stunning web applications.
+          </p>
+          <p class="text-white/60 leading-relaxed mb-6">
+            My expertise spans the full spectrum of modern web development — from architecting scalable React applications to crafting custom WebGL shaders and 3D experiences that captivate users.
+          </p>
+          <div class="pt-4 border-t border-white/10">
+            <h3 class="text-white font-medium mb-4">Technologies & Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              ["React", "Next.js", "Three.js", "React Three Fiber", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP", "WebGL", "GLSL", "Blender", "Figma", "Node.js", "PostgreSQL", "Vercel", "Git"].map(tech => (
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm font-medium hover:bg-white/10 hover:border-white/20 transition-all">
+                  {tech}
+                </span>
+              ))
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="grid grid-cols-2 gap-4 mb-10">
+            {[
+              { value: "50+", label: "Projects Completed" },
+              { value: "3+", label: "Years Experience" },
+              { value: "15+", label: "Technologies" },
+              { value: "100%", label: "Client Satisfaction" }
+            ].map(stat => (
+              <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <div class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-1">{stat.value}</div>
+                <div class="text-white/60 text-sm font-light">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+          <h3 class="text-white font-medium mb-4">Core Expertise</h3>
+          <div class="space-y-4">
+            {[
+              { name: "React & Next.js", icon: "💻", color: "from-cyan-400 to-blue-500" },
+              { name: "Three.js & R3F", icon: "🎮", color: "from-purple-400 to-pink-500" },
+              { name: "UI/UX Design", icon: "🎨", color: "from-pink-400 to-rose-500" },
+              { name: "WebGL & Shaders", icon: "⚡", color: "from-orange-400 to-red-500" },
+              { name: "TypeScript", icon: "📘", color: "from-blue-400 to-indigo-500" },
+              { name: "Creative Coding", icon: "✨", color: "from-green-400 to-teal-500" }
+            ].map(skill => (
+              <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: `linear-gradient(135deg, ${skill.color})` }}>
+                  {skill.icon}
+                </div>
+                <span class="text-white font-medium text-lg">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="relative py-24 md:py-32 px-6 bg-black/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-cyan-400 mb-4">Selected Work</span>
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-4">
+          Projects &<br />
+          <span class="font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Experiments</span>
+        </h2>
+        <p class="text-lg text-white/60 max-w-2xl mx-auto font-light leading-relaxed">A collection of projects showcasing creative coding, 3D web experiences, and full-stack applications.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { id: 1, title: "Neural Network Visualizer", desc: "Interactive 3D visualization of neural network architectures with real-time training.", tags: ["React Three Fiber", "WebGL", "TensorFlow.js", "GSAP"], category: "3D & ML", color: "from-cyan-500 to-blue-600", featured: true },
+          { id: 2, title: "Immersive Portfolio Template", desc: "Award-winning portfolio template featuring custom shaders, smooth animations, and 3D interactions.", tags: ["Next.js", "Three.js", "Tailwind", "Framer Motion"], category: "Creative Coding", color: "from-purple-500 to-pink-500", featured: true },
+          { id: 3, title: "Real-time Collaboration Tool", desc: "Multi-user collaborative workspace with live cursors, presence, and conflict-free editing.", tags: ["React", "WebRTC", "Yjs", "Node.js", "PostgreSQL"], category: "Full Stack", color: "from-green-500 to-teal-500", featured: false },
+          { id: 4, title: "Generative Art Engine", desc: "Procedural art generator using custom GLSL shaders with export capabilities for print and web.", tags: ["WebGL", "GLSL", "Three.js", "Canvas API"], category: "Generative Art", color: "from-orange-500 to-red-500", featured: true },
+          { id: 5, title: "E-commerce 3D Configurator", desc: "Product customization with real-time 3D rendering, AR preview, and dynamic pricing.", tags: ["React Three Fiber", "AR.js", "Stripe", "Commerce.js"], category: "E-Commerce", color: "from-pink-500 to-rose-500", featured: false },
+          { id: 6, title: "Data Visualization Dashboard", desc: "Interactive dashboard with 3D charts, real-time updates, and customizable views.", tags: ["D3.js", "Three.js", "WebSockets", "TypeScript"], category: "Data Viz", color: "from-indigo-500 to-purple-500", featured: false }
+        ].map(project => (
+          <article class="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all duration-500 flex flex-col h-full p-6">
+            <div class="mb-4">
+              <span class="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 text-xs font-medium mb-3">{project.category}</span>
+              <h3 class="text-xl font-medium text-white group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+            </div>
+            <p class="text-white/60 text-sm leading-relaxed mb-4 flex-1">{project.desc}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.slice(0,3).map(tag => (
+                <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-white/60 text-xs font-medium">{tag}</span>
+              ))}
+              {project.tags.length > 3 && <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-white/40 text-xs font-medium">+{project.tags.length - 3}</span>}
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+              <a href="#" class="group flex items-center gap-2 text-white/60 hover:text-cyan-400 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span class="text-sm font-medium">Code</span></a>
+              <a href="#" class="group flex items-center gap-2 text-white/60 hover:text-cyan-400 transition-colors ml-auto"><span class="text-sm font-medium">Live Demo</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="relative py-24 md:py-32 px-6 bg-black/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-cyan-400 mb-4">Expertise</span>
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-4">
+          Technical<br />
+          <span class="font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Arsenal</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        {[
+          { name: "Frontend", color: "#00d4ff", skills: [{name:"React",level:95},{name:"Next.js",level:90},{name:"TypeScript",level:92},{name:"Tailwind CSS",level:94},{name:"Framer Motion",level:88},{name:"GSAP",level:85}] },
+          { name: "3D & Graphics", color: "#a855f7", skills: [{name:"Three.js",level:90},{name:"React Three Fiber",level:88},{name:"WebGL/GLSL",level:82},{name:"Blender",level:75},{name:"Shader Dev",level:85},{name:"Post-processing",level:80}] },
+          { name: "Backend & Tools", color: "#34d399", skills: [{name:"Node.js",level:85},{name:"PostgreSQL",level:80},{name:"GraphQL",level:78},{name:"Docker",level:75},{name:"AWS/Vercel",level:82},{name:"Git/CI-CD",level:88}] },
+          { name: "Design", color: "#f472b6", skills: [{name:"Figma",level:85},{name:"UI/UX Design",level:82},{name:"Prototyping",level:88},{name:"Design Systems",level:80},{name:"Motion Design",level:85},{name:"Accessibility",level:78}] }
+        ].map(cat => (
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: `linear-gradient(135deg, ${cat.color}CC, ${cat.color}44)` }}>
+              <div class="w-8 h-8 rounded-lg bg-black/50 flex items-center justify-center text-white font-bold text-lg">{cat.name.charAt(0)}</div>
+            </div>
+            <h3 class="text-white font-medium text-lg mb-2">{cat.name}</h3>
+            <p class="text-white/50 text-sm mb-4">{cat.skills.length} technologies</p>
+            <div class="flex flex-wrap gap-1.5">
+              {cat.skills.slice(0,4).map(s => (
+                <span class="px-2 py-1 rounded text-xs font-medium text-white/70" style={{ background: `${cat.color}22`, border: `1px solid ${cat.color}44` }}>{s.name}</span>
+              ))}
+              {cat.skills.length > 4 && <span class="px-2 py-1 rounded text-xs font-medium text-white/40 bg-white/5 border border-white/10">+{cat.skills.length - 4}</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative py-24 md:py-32 px-6 bg-black/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-cyan-400 mb-4">Get In Touch</span>
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-4">
+          Let's Create<br />
+          <span class="font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Something Amazing</span>
+        </h2>
+        <p class="text-lg text-white/60 max-w-2xl mx-auto font-light leading-relaxed">Have a project in mind? I'm always open to discussing new opportunities, collaborations, or just chatting about creative technology.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div class="space-y-4">
+          {[
+            { icon: "📧", label: "Email", value: "hello@developer.dev" },
+            { icon: "📍", label: "Location", value: "San Francisco, CA" },
+            { icon: "💻", label: "GitHub", value: "@developer" },
+            { icon: "💼", label: "LinkedIn", value: "in/developer" },
+            { icon: "🐦", label: "Twitter", value: "@developer" }
+          ].map(item => (
+            <a href="#" class="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/30 hover:bg-white/10 transition-all">
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 text-white text-2xl">{item.icon}</div>
+              <div><div class="text-white/50 text-sm">{item.label}</div><div class="text-white font-medium">{item.value}</div></div>
+            </a>
+          ))}
+        </div>
+
+        <form class="space-y-4" onSubmit={(e)=>{e.preventDefault();alert('Form submitted!');}}>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div><label class="block text-white/70 text-sm font-medium mb-2">Name</label><input type="text" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all" placeholder="John Doe" required /></div>
+            <div><label class="block text-white/70 text-sm font-medium mb-2">Email</label><input type="email" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all" placeholder="john@example.com" required /></div>
+          </div>
+          <div><label class="block text-white/70 text-sm font-medium mb-2">Subject</label><input type="text" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all" placeholder="Project Inquiry" required /></div>
+          <div><label class="block text-white/70 text-sm font-medium mb-2">Message</label><textarea rows="5" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all resize-none" placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium hover:from-cyan-600 hover:to-blue-700 transition-all flex items-center justify-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative py-16 px-6 bg-black/50 border-t border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <div class="flex items-center gap-2 mb-4"><div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-cyan-400 to-purple-500"><span class="font-bold text-white text-base">CD</span></div><span class="font-light text-xl text-white">Creative Dev</span></div>
+          <p class="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">Crafting immersive digital experiences through code, 3D graphics, and thoughtful design.</p>
+          <div class="flex items-center gap-4">{"💻💼🐦📧".split("").map((icon,i)=>(
+            <a href="#" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all text-2xl">{icon}</a>
+          ))}</div>
+        </div>
+        <div><h4 class="text-white font-medium mb-4">Navigate</h4><nav class="space-y-3">["Home","About","Work","Skills","Contact"].map(l=><a href="#" class="block text-white/60 hover:text-cyan-400 text-sm font-medium transition-colors">{l}</a>))}</nav></div>
+        <div><h4 class="text-white font-medium mb-4">Resources</h4><nav class="space-y-3">["Resume","Case Studies","Open Source","Blog"].map(l=><a href="#" class="block text-white/60 hover:text-cyan-400 text-sm font-medium transition-colors">{l}</a>))}</nav></div>
+        <div><h4 class="text-white font-medium mb-4">Get In Touch</h4><div class="space-y-3 text-sm"><div class="flex items-center gap-3 text-white/60"><span>📍</span><span>San Francisco, CA</span></div><div class="flex items-center gap-3 text-white/60"><span>📧</span><a href="#" class="hover:text-cyan-400 transition-colors">hello@developer.dev</a></div><div class="flex items-center gap-3 text-white/60"><span>💼</span><span>Available for freelance</span></div></div></div>
+      </div>
+      <div class="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-white/40 text-sm">© 2024 Creative Dev. All rights reserved.</p>
+        <div class="flex items-center gap-2 text-white/40 text-sm">Made with ❤️ and 💻🎨🎮</div>
+        <a href="#" class="w-10 h-10 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple 3D Hero Animation
+    const canvas = document.createElement('canvas');
+    document.getElementById('hero-canvas').appendChild(canvas);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 8);
+
+    // Torus Knot
+    const geometry = new THREE.TorusKnotGeometry(1.2, 0.4, 128, 32, 2, 3);
+    const material = new THREE.MeshPhysicalMaterial({
+      color: 0x00d4ff,
+      metalness: 0.8,
+      roughness: 0.1,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.1,
+      transmission: 0.3,
+      thickness: 0.5,
+      ior: 1.5,
+      envMapIntensity: 2
+    });
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
+
+    // Floating geometries
+    const geometries = [
+      { type: 'icosahedron', pos: [-3, 2, -2], scale: 0.4, color: 0xf472b6 },
+      { type: 'octahedron', pos: [3, -1, -3], scale: 0.5, color: 0x34d399 },
+      { type: 'tetrahedron', pos: [-2, -2, 2], scale: 0.45, color: 0xfbbf24 },
+      { type: 'dodecahedron', pos: [2.5, 2.5, 1.5], scale: 0.35, color: 0xa855f7 }
+    ];
+
+    geometries.forEach((g, i) => {
+      let geo;
+      switch(g.type) {
+        case 'icosahedron': geo = new THREE.IcosahedronGeometry(g.scale, 0); break;
+        case 'octahedron': geo = new THREE.OctahedronGeometry(g.scale); break;
+        case 'tetrahedron': geo = new THREE.TetrahedronGeometry(g.scale); break;
+        case 'dodecahedron': geo = new THREE.DodecahedronGeometry(g.scale); break;
+      }
+      const mat = new THREE.MeshPhysicalMaterial({
+        color: g.color,
+        metalness: 0.6,
+        roughness: 0.2,
+        clearcoat: 1,
+        clearcoatRoughness: 0.1,
+        envMapIntensity: 2
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(...g.pos);
+      scene.add(mesh);
+    });
+
+    // Stars
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsCount = 2000;
+    const positions = new Float32Array(starsCount * 3);
+    for(let i=0;i<starsCount;i++) {
+      const r = 30 + Math.random() * 20;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3+2] = r * Math.cos(phi);
+    }
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const starsMaterial = new THREE.PointsMaterial({ size: 0.1, color: 0xffffff, transparent: true, opacity: 0.8 });
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+
+    // Lights
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 3);
+    dirLight.position.set(5, 10, 7);
+    scene.add(dirLight);
+    scene.add(new THREE.PointLight(0x00d4ff, 2, 0, 2, 2));
+    scene.add(new THREE.PointLight(0xa855f7, 1.5, 0, 2, 2));
+
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.01;
+      
+      torusKnot.rotation.x += 0.005;
+      torusKnot.rotation.y += 0.008;
+      torusKnot.position.y = Math.sin(time * 0.8) * 0.3;
+
+      geometries.forEach((g, i) => {
+        const mesh = scene.children.find(c => c.position.x === g.pos[0] && c.position.y === g.pos[1] && c.position.z === g.pos[2]);
+        if(mesh) {
+          mesh.rotation.x += 0.003;
+          mesh.rotation.y += 0.005;
+          mesh.position.y = g.pos[1] + Math.sin(time + i * 2.5) * 0.4;
+          mesh.position.x = g.pos[0] + Math.cos(time * 0.7 + i * 2.5) * 0.3;
+        }
+      });
+
+      stars.rotation.y += 0.0001;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
